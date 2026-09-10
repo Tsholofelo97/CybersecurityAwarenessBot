@@ -1,0 +1,112 @@
+﻿namespace CybersecurityAwarenessBot
+{
+public class Chatbot
+{
+private UserProfile user = new UserProfile();
+private ResponseHandler responseHandler = new ResponseHandler();
+
+public void Start()
+{
+// Play the voice greeting.
+VoiceGreeting voiceGreeting = new VoiceGreeting();
+voiceGreeting.PlayGreeting();
+
+// Display the cybersecurity ASCII logo.
+AsciiArt asciiArt = new AsciiArt();
+asciiArt.DisplayLogo();
+
+// Ask the user for their name.
+GetUserName();
+
+// Display the personalised greeting.
+DisplayWelcomeMessage();
+
+// Start the chatbot conversation.
+StartConversation();
+}
+
+private void GetUserName()
+{
+while (true)
+{
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.Write("Bot > Please enter your name: ");
+Console.ResetColor();
+
+string? name = Console.ReadLine();
+
+if (!string.IsNullOrWhiteSpace(name))
+{
+user.Name = name.Trim();
+break;
+}
+
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Bot > I did not catch your name. Please enter a valid name.");
+Console.ResetColor();
+}
+}
+
+private void DisplayWelcomeMessage()
+{
+Console.WriteLine();
+
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine("================================================");
+Console.WriteLine($"Bot > Welcome, {user.Name}!");
+Console.WriteLine("Bot > I am your Cybersecurity Awareness Assistant.");
+Console.WriteLine("================================================");
+Console.WriteLine();
+
+Console.WriteLine("You can ask me about:");
+Console.WriteLine("  • Password safety");
+Console.WriteLine("  • Phishing");
+Console.WriteLine("  • Safe browsing");
+Console.WriteLine("  • My purpose");
+Console.WriteLine("  • How I am doing");
+Console.WriteLine();
+
+Console.WriteLine("Type 'exit' when you want to leave.");
+Console.WriteLine("================================================");
+
+Console.ResetColor();
+}
+
+private void StartConversation()
+{
+while (true)
+{
+Console.WriteLine();
+
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.Write($"{user.Name} > ");
+Console.ResetColor();
+
+string? question = Console.ReadLine();
+
+if (string.IsNullOrWhiteSpace(question))
+{
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Bot > Please type a question so that I can help you.");
+Console.ResetColor();
+continue;
+}
+
+if (question.Trim().ToLower() == "exit")
+{
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine();
+Console.WriteLine($"Bot > Goodbye, {user.Name}! Stay safe online.");
+Console.ResetColor();
+break;
+}
+
+string response = responseHandler.GetResponse(question);
+
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"Bot > {response}");
+Console.ResetColor();
+}
+}
+}
+}
