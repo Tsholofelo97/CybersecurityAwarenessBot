@@ -1,54 +1,60 @@
-﻿```csharp
-using System;
-namespace CybersecurityAwarenessBot
+﻿using System;
+using System.Collections.Generic;
+
+namespace CybersecurityAwarenessBotPart2
 {
-    /// <summary>
-    /// Handles cybersecurity questions and provides appropriate responses.
-    /// </summary>
     public class ResponseHandler
     {
-        public string GetResponse(string userInput)
+        private Random random = new Random();
+
+        private Dictionary<string, List<string>> responses =
+            new Dictionary<string, List<string>>()
         {
-            // Validate that the user entered something.
-            if (string.IsNullOrWhiteSpace(userInput))
             {
-                return "Please enter a question so I can help you.";
+                "password",
+                new List<string>()
+                {
+                    "Use strong unique passwords.",
+                    "Never share your password.",
+                    "Use a password manager."
+                }
+            },
+
+            {
+                "phishing",
+                new List<string>()
+                {
+                    "Be careful of suspicious emails.",
+                    "Check sender addresses carefully.",
+                    "Never click unknown links."
+                }
+            },
+
+            {
+                "browsing",
+                new List<string>()
+                {
+                    "Only visit trusted websites.",
+                    "Check for HTTPS.",
+                    "Keep your browser updated."
+                }
+            }
+        };
+
+        public string GetResponse(string input)
+        {
+            input = input.ToLower();
+
+            foreach (var keyword in responses.Keys)
+            {
+                if (input.Contains(keyword))
+                {
+                    List<string> list = responses[keyword];
+                    return list[random.Next(list.Count)];
+                }
             }
 
-            string input = userInput.ToLower().Trim();
-
-            if (input.Contains("password"))
-            {
-                return "Use strong, unique passwords with uppercase letters, lowercase letters, numbers and symbols. Avoid using the same password for multiple accounts.";
-            }
-            else if (input.Contains("phishing"))
-            {
-                return "Phishing is a scam that tricks people into revealing sensitive information. Avoid suspicious links and never share your passwords.";
-            }
-            else if (input.Contains("browsing") || input.Contains("safe browsing"))
-            {
-                return "Only visit trusted websites, check website addresses carefully and avoid clicking suspicious links.";
-            }
-            else if (input.Contains("malware"))
-            {
-                return "Malware is malicious software that can damage your device or steal information. Keep your software updated and use trusted security software.";
-            }
-            else if (input.Contains("social engineering"))
-            {
-                return "Social engineering involves manipulating people into giving away confidential information. Always verify unexpected requests.";
-            }
-            else if (input.Contains("purpose"))
-            {
-                return "My purpose is to teach cybersecurity awareness and help users stay safer online.";
-            }
-            else if (input.Contains("how are you"))
-            {
-                return "I am doing well and ready to help you stay safe online.";
-            }
-
-            // Default response for questions the chatbot does not recognise.
-            return "I did not understand that. Please ask me about passwords, phishing, malware, social engineering or safe browsing.";
+            return "I'm not sure I understand. Can you try rephrasing?";
         }
     }
 }
-```

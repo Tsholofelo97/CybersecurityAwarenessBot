@@ -1,0 +1,39 @@
+﻿<Window x:Class="CybersecurityAwarenessBotPart2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Awareness Bot"
+        Height="600"
+        Width="800">
+
+    <Grid Background="LightBlue">
+
+        <StackPanel Margin="10">
+
+            <TextBlock Text="CYBERSECURITY AWARENESS BOT"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+
+            <TextBlock Text="🛡 STAY SAFE ONLINE 🛡"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       Margin="0,10"/>
+
+            <TextBox Name="ChatDisplay"
+                     Height="350"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+            <TextBox Name="UserInput"
+                     Height="35"
+                     Margin="0,10"/>
+
+            <Button Content="Send"
+                    Height="40"
+                    Click="SendButton_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

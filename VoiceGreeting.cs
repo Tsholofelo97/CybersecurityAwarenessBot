@@ -2,32 +2,28 @@
 using System.IO;
 using System.Media;
 
-namespace CybersecurityAwarenessBot
+namespace CybersecurityAwarenessBotPart2
 {
     public class VoiceGreeting
     {
-        public void PlayGreeting()
+        public static void PlayGreeting()
         {
             try
             {
-                string filePath = Path.Combine(
+                string path = Path.Combine(
                     AppDomain.CurrentDomain.BaseDirectory,
                     "Audio",
-                    "greeting.wav");
+                    "Greetings.wav");
 
-                if (File.Exists(filePath))
+                if (File.Exists(path))
                 {
-                    SoundPlayer player = new SoundPlayer(filePath);
-                    player.PlaySync();
-                }
-                else
-                {
-                    Console.WriteLine("Greeting audio file not found.");
+                    SoundPlayer player = new SoundPlayer(path);
+                    player.Play();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Audio error: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }

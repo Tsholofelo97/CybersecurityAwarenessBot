@@ -1,88 +1,87 @@
-# Cybersecurity Awareness Chatbot
+# Cybersecurity Awareness Bot
 
-## Project Overview
+## Student Details
 
-The Cybersecurity Awareness Chatbot is a C# console application that provides users with basic information about cybersecurity and online safety.
+**Student Name:** Tsholofelo Marabe
+**Student Number:** ST10499950
+**Institution:** Rosebank College
+**Module:** PROG6221
 
-The chatbot allows users to ask questions about common cybersecurity topics and provides helpful responses.
+## Project Description
 
-## Features
+The Cybersecurity Awareness Bot is a C# application designed to help users learn about basic cybersecurity and online safety.
 
-* Interactive chatbot conversation
+The application provides information about topics such as:
+
+* Password safety
+* Phishing
+* Safe browsing
+* Cybersecurity awareness
+* User questions and chatbot responses
+
+## Part 2 Features
+
+The Part 2 application includes:
+
+* WPF graphical user interface
+* Chatbot conversation interface
+* Dynamic responses
+* Sentiment detection
+* User memory
 * Cybersecurity awareness information
-* Password safety advice
-* Phishing awareness
-* Safe browsing guidance
-* Malware information
-* Social engineering awareness
+* Voice greeting
 * Input validation
-* Default responses for unknown questions
-* Coloured console interface
-* ASCII art logo
-* WAV voice greeting
-* Error handling
 
 ## Technologies Used
 
 * C#
 * .NET
-* Visual Studio Code
-* Console Application
-* WAV audio
+* WPF
+* Visual Studio 2022
+
+## How to Run the Application
+
+1. Open the project in Visual Studio 2022.
+2. Open the solution file.
+3. Build the solution.
+4. Run the application.
+5. Enter a message in the chatbot input box.
+6. Click the Send button to receive a response.
+
+## Cybersecurity Topics
+
+The chatbot can provide information about:
+
+### Password Safety
+
+The chatbot provides advice about creating strong passwords and protecting passwords from unauthorised access.
+
+### Phishing
+
+The chatbot explains how to identify suspicious emails, messages and links.
+
+### Safe Browsing
+
+The chatbot provides guidance on browsing the internet safely and avoiding suspicious websites.
 
 ## Project Structure
 
-* `Program.cs` – Starts the chatbot application.
-* `Chatbot.cs` – Controls the main chatbot conversation.
-* `AsciiArt.cs` – Displays the chatbot logo and console design.
-* `UserProfile.cs` – Stores the user's name.
-* `ResponseHandler.cs` – Processes questions and provides responses.
-* `VoiceGreeting.cs` – Plays the WAV greeting.
-* `Audio/greeting.wav` – Contains the chatbot's voice greeting.
+```text
+CybersecurityAwarenessBotPart2
+?
+??? Audio
+?   ??? greeting.wav
+?
+??? MainWindow.xaml
+??? MainWindow.xaml.cs
+??? Chatbot.cs
+??? ResponseHandler.cs
+??? SentimentDetector.cs
+??? MemoryManager.cs
+??? UserProfile.cs
+??? README.md
+```
 
-## How to Run
+## Conclusion
 
-1. Open the project folder in Visual Studio Code.
-2. Make sure all C# files are included.
-3. Make sure the `Audio` folder contains `greeting.wav`.
-4. Build the project.
-5. Run the application.
-6. Follow the instructions displayed in the console.
-
-## Example Questions
-
-The chatbot can answer questions such as:
-
-* What is phishing?
-* How can I create a strong password?
-* How can I browse safely?
-* What is malware?
-* What is social engineering?
-* What is your purpose?
-* How are you?
-
-## Input Validation
-
-The chatbot checks whether the user has entered a valid question.
-
-If the user enters an empty input, the chatbot asks them to enter a question.
-
-If the chatbot does not recognise the question, it provides a default response and suggests cybersecurity topics that the user can ask about.
-
-## Error Handling
-
-The application uses error handling to manage unexpected errors.
-
-The voice greeting checks whether the WAV file exists before attempting to play it. If the audio file cannot be found or an audio error occurs, an informative message is displayed instead of allowing the application to crash.
-
-## User Interface
-
-The application uses coloured text, borders, spacing and ASCII art to make the console interface easier to read and more engaging.
-
-## Author
-
-**Tsholofelo Marabe**
-
-## Project Purpose
-
-The purpose of this project is to demonstrate C# programming and software development skills while creating an interactive chatbot that promotes cybersecurity awareness.
+The Cybersecurity Awareness Bot demonstrates how C# and WPF can be used to create an interactive cybersecurity awareness application. The application allows users to communicate with the chatbot and receive cybersecurity guidance.
