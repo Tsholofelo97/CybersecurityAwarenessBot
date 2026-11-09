@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Audio\greeting.wav.m4a" />
+    <!-- MySQL connector used by the Task Assistant (Data/TaskRepository.cs) -->
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Audio\greeting.wav.m4a">
+    <!-- Copies Audio/greeting.wav next to the .exe so the voice greeting can play -->
+    <Content Include="Audio\*.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
