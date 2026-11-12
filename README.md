@@ -103,4 +103,5 @@ CybersecurityAwarenessBotPart2/
 - `v3.0-final` – Tasks + MySQL + Quiz + NLP + Activity Log
 
 ## Video Presentation
-Unlisted YouTube link: *(paste link here)*
+Unlisted YouTube link: https://youtu.be/zRjM6L2w_Tw
+
